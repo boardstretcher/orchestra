@@ -1,0 +1,5 @@
+# hostname: testing_server02.mydomain.com
+# ip_address: 192.168.1.102
+# keypair: testing_key
+# tags: testing,dev,scrap
+# os: ubuntu 12.04
