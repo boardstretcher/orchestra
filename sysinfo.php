@@ -2,14 +2,13 @@
 <?php include "header.php"; ?>  
 <body>
 <?php include "navbar.php"; ?>
-
-	<h2>program requirements:</h2>
+	<h2>required program versions</h2>
 	<p>
 		<h3>bash</h3>
 		<?php $output = shell_exec('bash --version');
                 echo "<pre>$output</pre>"; ?>
 		<h3>ssh</h3>
-                <?php $output = shell_exec('/usr/bin/ssh -V');
+                <?php $output = shell_exec('rpm -qa | grep openssh');
                 echo "<pre>$output</pre>"; ?>
  		<h3>sshpass</h3>
                 <?php $output = shell_exec('sshpass -V');
@@ -30,7 +29,6 @@
 	        <?php $output = shell_exec('df -h');
 	        echo "<pre>$output</pre>"; ?>
 	</p>
-
 <?php include "footer.php"; ?>	
 </body>
 </html>

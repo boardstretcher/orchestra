@@ -41,7 +41,9 @@ if ($informer == "keys.php") {
 
 	if ($formname == "create") {
 		$output = shell_exec("ssh-keygen -f ./keys/$escaped_keyname -t $escaped_keytype -N ''");
+		echo "this should just be a popup<br><br>";
 		echo "<pre>$output</pre>"; 
+		echo "<a href='keys.php'>Go Back</a>";
 	}
 
 	if ($formname == "send") {
