@@ -2,7 +2,6 @@
 <?php include "header.php"; ?>  
 <body>
 <?php include "navbar.php"; ?>
-
 	<h2>orchestra stats</h2>
 	<p>
 		<br>number of snippets: <?php $output = shell_exec('find snippets/ -type f | wc -l'); echo "$output"; ?>

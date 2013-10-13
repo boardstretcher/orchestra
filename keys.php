@@ -13,8 +13,11 @@
 		<form action="engine.php" method="post">
 			<input type="hidden" name="informer" value="keys.php">
 			<input type="hidden" name="formname" value="create">
-			keyname <input type="text" name="keyname"><br>
-			keytype <input type="text" name="keytype"><br>
+			keyname<br>
+			<input type="text" name="keyname"><br><br>
+			keytype<br>
+			RSA<input type="radio" name="keytype" value="rsa"><br>
+			DSA<input type="radio" name="keytype" value="dsa">	
 			<input type="submit" value="create key">
 		</form>
 	</p>
