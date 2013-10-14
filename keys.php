@@ -7,7 +7,8 @@
 <?php include "header.php"; ?> 
 <body>
 <?php include "navbar.php"; ?>
-	<legend>create key <a href="howto.php#createakey"> help</a></legend>
+	<legend>create key</legend>
+	<a href="reference.php#createakey"> help</a>
 	<p>
 		<form action="engine.php" method="post">
 			<input type="hidden" name="informer" value="keys.php">
@@ -22,7 +23,8 @@
 		</form>
 	</p>
 
-	<legend>send key to server(s) <a href="howto.php#sendkey"> help</a></legend>
+	<legend>send key to server(s)</legend>
+	<a href="reference.php#sendkey"> help</a>
 	<p>
                 <form action="engine.php" method="post">
 		<input type="hidden" name="informer" value="keys.php">

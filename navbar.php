@@ -15,8 +15,6 @@
 	        if ($current == "/orchestra/keys.php") { echo "<li class=\"active\"><a href=\"keys.php\">keys</a></li>";} else { echo "<li><a href=\"keys.php\">keys</a></li>"; }
 	        if ($current == "/orchestra/servers.php") { echo "<li class=\"active\"><a href=\"servers.php\">servers</a></li>";} else { echo "<li><a href=\"servers.php\">servers</a></li>"; }
 	        if ($current == "/orchestra/reference.php") { echo "<li class=\"active\"><a href=\"reference.php\">reference</a></li>";} else { echo "<li><a href=\"reference.php\">reference</a></li>"; }
-	        if ($current == "/orchestra/howto.php") { echo "<li class=\"active\"><a href=\"howto.php\">howto</a></li>";} else { echo "<li><a href=\"howto.php\">howto</a></li>"; }
-	        if ($current == "/orchestra/sysinfo.php") { echo "<li class=\"active\"><a href=\"sysinfo.php\">sysinfo</a></li>";} else { echo "<li><a href=\"sysinfo.php\">sysinfo</a></li>"; }
 	        if ($current == "/orchestra/admin.php") { echo "<li class=\"active\"><a href=\"admin.php\">admin</a></li>";} else { echo "<li><a href=\"admin.php\">admin</a></li>"; }
         ?>
 	</ul>

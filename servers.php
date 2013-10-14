@@ -3,7 +3,7 @@
 <body>
 <?php include "navbar.php"; ?>
 	<legend>add a server</legend>
-	<a href="howto.php#addaserver">help</a>
+	<a href="reference.php#addaserver">help</a>
         <form action="engine.php" method="post">
 	<input type="hidden" name="informer" value="servers.php">
         <input type="hidden" name="formname" value="add">
