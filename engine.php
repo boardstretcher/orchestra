@@ -4,6 +4,8 @@
 //script needs to be called
 
 $informer = $_POST["informer"];
+$formname = $_POST["formname"];
+
 if ($informer == "createjob.php") {
 	
 	//simply echo the post data
@@ -24,15 +26,8 @@ if ($informer == "createjob.php") {
 } // end createjob.php action
 
 if ($informer == "keys.php") {
-	//scrub possibly dangerous input
-	$escaped_keyname = escapeshellcmd($_POST["keyname"]);
-	$escaped_keytype = escapeshellcmd($_POST["keytype"]);
-	$escaped_formname = escapeshellcmd($_POST["formname"]);
-	$escaped_sendkey = escapeshellcmd($_POST["sendkey"]);
-	$escaped_servers = escapeshellcmd($_POST["servers"]);
-	$escaped_password = escapeshellcmd($_POST["password"]);
-
 	if ($formname == "create") {
+		$escaped_keytype = escapeshellcmd($_POST["keytype"]);
 		$output = shell_exec("ssh-keygen -f ./keys/$escaped_keyname -t $escaped_keytype -N ''");
 		echo "this should just be a popup<br><br>";
 		echo "<pre>$output</pre>"; 
@@ -40,6 +35,12 @@ if ($informer == "keys.php") {
 	}//if formname == create
 
 	if ($formname == "send") {
+		$escaped_keyname = escapeshellcmd($_POST["keyname"]);
+	        $escaped_formname = escapeshellcmd($_POST["formname"]);
+        	$escaped_sendkey = escapeshellcmd($_POST["sendkey"]);
+	        $escaped_servers = escapeshellcmd($_POST["servers"]);
+	        $escaped_password = escapeshellcmd($_POST["password"]);
+
 		$escaped_servers = explode(PHP_EOL, $escaped_servers);
 		$escaped_servers = array_filter($escaped_servers, 'trim');
 		foreach ($escaped_servers as $line) {
@@ -73,37 +74,51 @@ if ($informer == "runjob.php") {
 } //end runjob.php
 
 if ($informer == "servers.php") {
-	//pull post data, scrub, and assign
-	$escaped_hostname = escapeshellcmd($_POST["hostname"]);
-	$escaped_ipaddress = escapeshellcmd($_POST["ipaddress"]);
-	$escaped_tags = escapeshellcmd($_POST["tags"]);
-	$escaped_tagslist = escapeshellcmd($_POST["tags"]);
-	$escaped_os = escapeshellcmd($_POST["os"]);
-	$escaped_key = escapeshellcmd($_POST["key"]);
+	if ($formname == "add") {
+		//pull post data, scrub, and assign
+		$escaped_hostname = escapeshellcmd($_POST["hostname"]);
+		$escaped_ipaddress = escapeshellcmd($_POST["ipaddress"]);
+		$escaped_tags = escapeshellcmd($_POST["tags"]);
+		$escaped_tagslist = escapeshellcmd($_POST["tags"]);
+		$escaped_os = escapeshellcmd($_POST["os"]);
+		$escaped_key = escapeshellcmd($_POST["key"]);
 	
-	// break out tags
-	$escaped_tags = explode(",", $escaped_tags);
-	$escaped_tags = array_filter($escaped_tags, 'trim');
+		// break out tags
+		$escaped_tags = explode(",", $escaped_tags);
+		$escaped_tags = array_filter($escaped_tags, 'trim');
+	
+		//print tags
+	        foreach ($escaped_tags as $line) {
+			echo "tags: $line <br>";
+	        }//end foreach
+	
+		//print form info
+		echo "hostname: $escaped_hostname <br>";
+		echo "ip: $escaped_ipaddress <br>";
+		echo "os: $escaped_os <br>";
+		echo "key: $escaped_key <br>";
+	
+		$f = fopen("servers/$escaped_hostname.ini", "w");
+		fwrite($f, "hostname=$escaped_hostname\n");
+		fwrite($f, "ip_address=$escaped_ipaddress\n");
+		fwrite($f, "keypair=$escaped_key\n");
+		fwrite($f, "os=$escaped_os\n");
+		fwrite($f, "tags=$escaped_tagslist\n");
+		fclose($f);  
+	}
 
-	//print tags
-        foreach ($escaped_tags as $line) {
-		echo "tags: $line <br>";
-        }//end foreach
+	if ($formname == "search") {
+		$escaped_search = escapeshellcmd($_POST["search"]);
+		$output = shell_exec("grep -i $escaped_search ./servers/");
 
-	//print form info
-	echo "hostname: $escaped_hostname <br>";
-	echo "ip: $escaped_ipaddress <br>";
-	echo "os: $escaped_os <br>";
-	echo "key: $escaped_key <br>";
-
-	$f = fopen("servers/$escaped_hostname.ini", "w");
-	fwrite($f, "hostname=$escaped_hostname\n");
-	fwrite($f, "ip_address=$escaped_ipaddress\n");
-	fwrite($f, "keypair=$escaped_key\n");
-	fwrite($f, "os=$escaped_os\n");
-	fwrite($f, "tags=$escaped_tagslist\n");
-	fclose($f);  
-
+		include "LICENSE";
+                include "header.php";
+                echo "<body>";
+                include "navbar.php";
+                echo "<pre>";
+                echo $output;
+                echo "</pre>";
+	}
 } //end servers.php
 ?>
 

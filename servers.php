@@ -66,6 +66,15 @@
 			</ul> 
 		</p>
 
+	<legend>search servers</legend>
+		<p>
+			<form action="engine.php" method="post">
+		        <input type="hidden" name="informer" value="servers.php">
+	        	<input type="hidden" name="formname" value="search">
+			<input type="text" name="search"><br>	
+			<input class="btn-custom" type="submit" value="search">
+		</p>
+
 <?php include "footer.php"; ?>
 </body>
 </html>
