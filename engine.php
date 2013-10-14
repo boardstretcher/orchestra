@@ -6,17 +6,17 @@
 $informer = $_POST["informer"];
 if ($informer == "createjob.php") {
 	
-	//simply echo the input
+	//simply echo the post data
 	echo $_POST["jobname"]; echo "<br>";
 	echo $_POST["description"]; echo "<br>";
 	echo $_POST["tags"]; echo "<br>";
 	echo $_POST["requiredvars"]; echo "<br>";
 
-	$server = $_POST["server"];
-	$n = count($server);
+	$escaped_server = escapeshellcmd($_POST["server"]);
+	$n = count($escaped_server);
 
 	for($i=0; $i < $n; $i++) {
-		echo($server[$i] . " ");
+		echo($escaped_server[$i] . " ");
 		echo "<br>";
 	}
 
@@ -24,39 +24,27 @@ if ($informer == "createjob.php") {
 } // end createjob.php action
 
 if ($informer == "keys.php") {
-	$keyname = $_POST["keyname"];
-	$keytype = $_POST["keytype"];
-	$formname= $_POST["formname"];
-	$sendkey= $_POST["sendkey"];
-	$servers= $_POST["servers"];
-	$password= $_POST["password"];
-
 	//scrub possibly dangerous input
-	$escaped_keyname = escapeshellcmd($keyname);
-	$escaped_keytype = escapeshellcmd($keytype);
-	$escaped_formname = escapeshellcmd($formname);
-	$escaped_sendkey = escapeshellcmd($sendkey);
-	$escaped_servers = escapeshellcmd($servers);
-	$escaped_password = escapeshellcmd($password);
+	$escaped_keyname = escapeshellcmd($_POST["keyname"]);
+	$escaped_keytype = escapeshellcmd($_POST["keytype"]);
+	$escaped_formname = escapeshellcmd($_POST["formname"]);
+	$escaped_sendkey = escapeshellcmd($_POST["sendkey"]);
+	$escaped_servers = escapeshellcmd($_POST["servers"]);
+	$escaped_password = escapeshellcmd($_POST["password"]);
 
 	if ($formname == "create") {
 		$output = shell_exec("ssh-keygen -f ./keys/$escaped_keyname -t $escaped_keytype -N ''");
 		echo "this should just be a popup<br><br>";
 		echo "<pre>$output</pre>"; 
 		echo "<a href='keys.php'>Go Back</a>";
-	}
+	}//if formname == create
 
 	if ($formname == "send") {
-		$servers = $_POST["servers"];
-		$password = escapeshellcmd($_POST["password"]);
-		$sendkey = escapeshellcmd($_POST["sendkey"]);
-		
-		$servers = explode(PHP_EOL, $servers);
-		$servers = array_filter($servers, 'trim');
-		foreach ($servers as $line) {
-			$output = shell_exec("sshpass -p $password ssh-copy-id -i keys/$sendkey $line");	
+		$escaped_servers = explode(PHP_EOL, $escaped_servers);
+		$escaped_servers = array_filter($escaped_servers, 'trim');
+		foreach ($escaped_servers as $line) {
+			$output = shell_exec("sshpass -p $escaped_password ssh-copy-id -i keys/$escaped_sendkey $line");	
 		} 
-
 		include "LICENSE";              
                 include "header.php"; 
                 echo "<body>";
@@ -65,8 +53,7 @@ if ($informer == "keys.php") {
                 $output = shell_exec("tail /var/log/httpd/error_log");
                 echo $output;
                 echo "</pre>";
-
-	}
+	}//if formname == send
 } // end keys.php action
 
 if ($informer == "runjob.php") {
@@ -85,6 +72,39 @@ if ($informer == "runjob.php") {
 	fclose($f);
 } //end runjob.php
 
+if ($informer == "servers.php") {
+	//pull post data, scrub, and assign
+	$escaped_hostname = escapeshellcmd($_POST["hostname"]);
+	$escaped_ipaddress = escapeshellcmd($_POST["ipaddress"]);
+	$escaped_tags = escapeshellcmd($_POST["tags"]);
+	$escaped_tagslist = escapeshellcmd($_POST["tags"]);
+	$escaped_os = escapeshellcmd($_POST["os"]);
+	$escaped_key = escapeshellcmd($_POST["key"]);
+	
+	// break out tags
+	$escaped_tags = explode(",", $escaped_tags);
+	$escaped_tags = array_filter($escaped_tags, 'trim');
+
+	//print tags
+        foreach ($escaped_tags as $line) {
+		echo "tags: $line <br>";
+        }//end foreach
+
+	//print form info
+	echo "hostname: $escaped_hostname <br>";
+	echo "ip: $escaped_ipaddress <br>";
+	echo "os: $escaped_os <br>";
+	echo "key: $escaped_key <br>";
+
+	$f = fopen("servers/$escaped_hostname.ini", "w");
+	fwrite($f, "hostname=$escaped_hostname\n");
+	fwrite($f, "ip_address=$escaped_ipaddress\n");
+	fwrite($f, "keypair=$escaped_key\n");
+	fwrite($f, "os=$escaped_os\n");
+	fwrite($f, "tags=$escaped_tagslist\n");
+	fclose($f);  
+
+} //end servers.php
 ?>
 
 
