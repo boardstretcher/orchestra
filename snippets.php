@@ -4,7 +4,7 @@
 <body>
 <?php include "navbar.php"; ?>
 
-	<h3>snippets</h3>
+	<legend>snippets</legend>
 	<p>This is the list of all the snippets in your ./snippets directory. These are updated often in the
 repository, so be sure to update your Orchestra often.</p>
 	<ul>

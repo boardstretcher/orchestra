@@ -3,7 +3,7 @@
 <body>
 <?php include "navbar.php"; ?>
 
-	<h2>spooler status</h2>
+	<legend>spooler status</legend>
 	<p>
 		list actively running jobs in /spooler
 	</p>

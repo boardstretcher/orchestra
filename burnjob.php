@@ -4,7 +4,7 @@
 <?php include "navbar.php"; ?>
 
 <br><br>
-<h2>create a burn job</h2>
+<legend>create a burn job</legend>
 	<p>
 		hmm,.. nothing here yet
 	</p>

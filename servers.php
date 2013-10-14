@@ -2,13 +2,15 @@
 <?php include "header.php"; ?>
 <body>
 <?php include "navbar.php"; ?>
-
-	<h2>general info</h2>
-        <form action="servers_action.php" method="post">
-        <p>
+	<legend>add a server</legend>
+	<a href="howto.php#addaserver">help</a>
+        <form action="engine.php" method="post">
+	<input type="hidden" name="informer" value="servers.php">
+        <input type="hidden" name="formname" value="add">
+	        <p>
 			hostname <input type="text" name="hostname"><br>
-	        ipaddress <input type="text" name="ipaddress"><br>
-			tags <input type="text" name="hostname"><br>
+		        ipaddress <input type="text" name="ipaddress"><br>
+			tags <input type="text" name="tags"><br>
 		</p>
 	<h4>server type</h4>
 		<p>
@@ -48,8 +50,8 @@
         </form>
 
 
-	<h2>servers</h2>
-		<p>This is the list of the current servers in your ./servers directory.</p>
+	<legend>servers list</legend>
+		<p>This is the list of the current active servers in your ./servers directory.</p>
 			<ul>
 			<?php
 			$dir = './servers/';

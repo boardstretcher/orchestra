@@ -47,13 +47,25 @@ if ($informer == "keys.php") {
 	}
 
 	if ($formname == "send") {
-		echo $_POST["formname"]; echo "<br>";
-		echo $_POST["sendkey"]; echo "<br>";
-		echo $_POST["servers"]; echo "<br>";
-		echo $_POST["password"]; echo "<br>";
-		echo "all there is to do here is make an sshpass command to include all this data<br>";
-		echo "something close to this, but needing a loop";
-		echo "sshpass -p $password ssh-copy-id -i $sendkey $servers";
+		$servers = $_POST["servers"];
+		$password = escapeshellcmd($_POST["password"]);
+		$sendkey = escapeshellcmd($_POST["sendkey"]);
+		
+		$servers = explode(PHP_EOL, $servers);
+		$servers = array_filter($servers, 'trim');
+		foreach ($servers as $line) {
+			$output = shell_exec("sshpass -p $password ssh-copy-id -i keys/$sendkey $line");	
+		} 
+
+		include "LICENSE";              
+                include "header.php"; 
+                echo "<body>";
+                include "navbar.php"; 
+                echo "<pre>";
+                $output = shell_exec("tail /var/log/httpd/error_log");
+                echo $output;
+                echo "</pre>";
+
 	}
 } // end keys.php action
 

@@ -2,7 +2,7 @@
 <?php include "header.php"; ?>
 <body>
 <?php include "navbar.php"; ?>
-	<h3>about</h3>
+	<legend>about</legend>
                 <p>
                 Orchestra is very unsecure. Just by it's very statement of purpose 
 it is unsecure. It's a centralized server, with keys to the castle, with the
@@ -13,7 +13,7 @@ Orchestra can be a great tool. Otherwise, it can be a great weapon.
 		This is not a tool for a team. This is a tool for an individual. It should
 be locked down as such.
 		</p>
-	<h3>security considerations</h3>
+	<legend>security considerations</legend>
 	<ul>
 		<li>iptables should be enabled</li>
 		<li>selinux should be enabled</li>
@@ -25,7 +25,7 @@ be locked down as such.
 
 	</ul>
 
-	<h3>HOWto</h3>
+	<legend>HOWto</legend>
 		<p>
 			QuickStart
 		</p>

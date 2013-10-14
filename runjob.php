@@ -3,7 +3,7 @@
 <body>
 
 	<a href="index.php">cancel</a>
-	<h2>this will be a popup window</h2>
+	<legend>this will be a popup window</legend>
 	for now, its just an html form<br>
 	<hr>
 

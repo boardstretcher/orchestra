@@ -3,7 +3,7 @@
 <body>
 <?php include "navbar.php"; ?>
 
-	<h3>jobs control</h3>
+	<legend>jobs control</legend>
 	<p>
 		<a href='createjob.php'>create a job</a> - create a new job to run on servers<br>
 		<a href="runjob.php">run a job</a> - run a job on servers<br>
