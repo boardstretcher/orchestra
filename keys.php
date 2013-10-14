@@ -19,7 +19,7 @@
 			RSA<input type="radio" name="keytype" value="rsa"><br>
 			DSA<input type="radio" name="keytype" value="dsa">	
 			<br>
-			<input class="btn" type="submit" value="create key">
+			<input class="btn-custom" type="submit" value="create key">
 		</form>
 	</p>
 
@@ -30,6 +30,7 @@
 		<input type="hidden" name="informer" value="keys.php">
 		<input type="hidden" name="formname" value="send">
 		<h4>Step 1: choose a key</h4>
+		<select id="key" name="key">
                         <?php
                         $directory = opendir("./keys");
                         while($entry = readdir($directory)) {
@@ -41,20 +42,21 @@
                         $RList = "";
  			for($i=2; $i<count($dirArray); $i++) {
                                 $value = $dirArray[$i];
-                                $RList .= "<input type=\"radio\" name=\"sendkey\" value=".$value." />".$value."<br>\n";
+                                $RList .= "<option name=\"sendkey\" value=".$value." />".$value."<br>\n";
                         }
                         echo $RList;
                         ?>
+		</select>
                         <br>
 
-		<h4>Step 2: choose server(s) to send key to</h4>
+		<h4>Step 2: specify server(s) to send key to</h4>
 		<i>one server per line</i><br>	
 			<textarea name="servers" cols="25" rows="10"></textarea><br>
 	
 		<h4>Step 3: specify password for server(s)</h4>
 			<textarea name="password" cols="25" rows="1"></textarea><br>
 	
-                        <input class="btn" type="submit" value="Send Key">
+                        <input class="btn-custom" type="submit" value="Send Key">
                 </form>
         </p>
 	

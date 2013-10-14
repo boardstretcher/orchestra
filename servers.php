@@ -14,41 +14,38 @@
 		</p>
 	<h4>server type</h4>
 		<p>
-			<input type="radio" name="os" value="ubuntu12.04">ubuntu 12.04<br>
-			<input type="radio" name="os" value="ubuntu12.10">ubuntu 12.10<br>
-			<input type="radio" name="os" value="ubuntu13.10">ubuntu 13.10<br>
-			<input type="radio" name="os" value="rhel4compatible">rhel4 compatible<br>
-			<input type="radio" name="os" value="rhel5compatible">rhel5 compatible<br>
-			<input type="radio" name="os" value="rhel6compatible">rhel6 compatible<br>
-			<input type="radio" name="os" value="other">other<br>
+		<select id="os" name="os">
+			<option value="" selected>Choose an OS</option>
+			<option value="ubuntu12">ubuntu12</option>
+			<option value="ubuntu13">ubuntu13</option>
+			<option value="rhel4compatible">rhel4compatible</option>
+			<option value="rhel5compatible">rhel5compatible</option>
+			<option value="rhel6compatible">rhel6compatible</option>
+			<option value="other">other</option>
+		</select>
 		</p>
 	<h4>choose key</h4>
 		<p>
+		<select id="key" name="key">
 		<?php
 			$directory = opendir("./keys");
 			while($entry = readdir($directory)) {
 				$dirArray[] = $entry; 
 			}
 			closedir($directory);
-			
 			$indexCount = count($dirArray);
-			
 			sort($dirArray);
-
 			$RList = "";
-	
 			for($i=2; $i<count($dirArray); $i++) {
 				$value = $dirArray[$i];
-				$RList .= "<input type=\"radio\" name=\"key\" value=".$value." />".$value."<br>"; 
+				$RList .= "<option value=".$value." />".$value."<br>"; 
 			}
-			
 			echo $RList;
 		?>
-			
-			<input type="submit" value="create">
+		</select><br><br>
+		<input class="btn-custom" type="submit" value="create">
         </p>
         </form>
-
 
 	<legend>servers list</legend>
 		<p>This is the list of the current active servers in your ./servers directory.</p>
