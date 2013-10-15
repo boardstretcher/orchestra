@@ -1,15 +1,13 @@
 <?php include "header.php"; ?>  
 <?php include "admin-navbar.php"; ?>
 
-<legend>/var/log/httpd/error_log output</legend>
-<a href="reference.php#adminerrorlog">help</a>
+<legend>/var/log/httpd/error_log output <a class="btn btn-mini btn-info" href="reference.php#adminerrorlog"> help</a></legend>
 <pre>
-<?php $output = shell_exec("tail /var/log/httpd/error_log");
+<?php $output = shell_exec("tail /var/log/httpd/error_log | sed 's/\[error\]/<span class=\"label label-important\">ERROR<\/span>/g'");
 echo $output;
 ?>
 </pre>
-  <legend>required program versions</legend>
-        <a href="reference.php#versions">help</a>
+  <legend>required program versions <a class="btn btn-mini  btn-info" href="reference.php#versions"> help</a></legend>
 
         <p>
                 <legend>bash</legend>

@@ -24,3 +24,12 @@
 </div>
 </div>
 
+<?php
+        $fhremote = file_get_contents("https://raw.github.com/boardstretcher/orchestra/master/stats/version.nfo");
+        $fhlocal = file_get_contents("stats/version.nfo");
+        if($fhlocal == $fhremote){
+        echo "<div class=\"alert alert-info\"><strong>Nice!</strong> Orchestra is up to date.</div>";
+        }
+?>
+
+

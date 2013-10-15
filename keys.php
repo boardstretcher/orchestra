@@ -1,23 +1,16 @@
 <?php include "header.php"; ?> 
 
 	<legend>create key</legend>
-	<a href="reference.php#createakey"> help</a>
 	<p>
 		<form action="engine.php" method="post">
 			<input type="hidden" name="informer" value="keys.php">
 			<input type="hidden" name="formname" value="create">
-			keyname<br>
-			<input type="text" name="keyname"><br>
-			keytype<br>
-			RSA<input type="radio" name="keytype" value="rsa"><br>
-			DSA<input type="radio" name="keytype" value="dsa">	
-			<br>
-			<input class="btn-custom" type="submit" value="create key">
+			<input class="span3" type="text" name="keyname" placeholder="keyname"><br>
+			<input class="btn btn-inverse" type="submit" value="create key"> <a class="btn btn-info" href="reference.php#createakey">help</a>
 		</form>
 	</p>
 
 	<legend>send key to server(s)</legend>
-	<a href="reference.php#sendkey"> help</a>
 	<p>
                 <form action="engine.php" method="post">
 		<input type="hidden" name="informer" value="keys.php">
@@ -47,9 +40,8 @@
 			<textarea name="servers" cols="25" rows="10"></textarea><br>
 	
 		<h4>Step 3: specify password for server(s)</h4>
-			<textarea name="password" cols="25" rows="1"></textarea><br>
-	
-                        <input class="btn-custom" type="submit" value="Send Key">
+			<input class="span3" type="text" name="password" placeholder="password"><br>
+                        <input class="btn btn-inverse" type="submit" value="Send Key"> <a class="btn btn-info" href="reference.php#sendkey">help</a>
                 </form>
         </p>
 	

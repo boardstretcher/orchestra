@@ -1,14 +1,14 @@
 <?php include "header.php"; ?>
 
 	<legend>add a server</legend>
-	<a href="reference.php#addaserver">help</a>
         <form action="engine.php" method="post">
 	<input type="hidden" name="informer" value="servers.php">
         <input type="hidden" name="formname" value="add">
+	<h4>server info</h4>
 	        <p>
-			hostname <input type="text" name="hostname"><br>
-		        ipaddress <input type="text" name="ipaddress"><br>
-			tags <input type="text" name="tags"><br>
+		<input class="span3" type="text" name="hostname" placeholder="hostname"><br>
+		<input class="span3" type="text" name="ipaddress" placeholder="ipaddress"><br>
+		<input class="span3" type="text" name="tags" placeholder="tags,tags,tags"><br>
 		</p>
 	<h4>server type</h4>
 		<p>
@@ -41,7 +41,7 @@
 			echo $RList;
 		?>
 		</select><br><br>
-		<input class="btn-custom" type="submit" value="create">
+		<input class="btn btn-inverse" type="submit" value="create"> <a class="btn btn-info" href="reference.php#addaserver"> help</a>
         </p>
         </form>
 
@@ -70,7 +70,7 @@
 		        <input type="hidden" name="informer" value="servers.php">
 	        	<input type="hidden" name="formname" value="search">
 			<input type="text" name="search"><br>	
-			<input class="btn-custom" type="submit" value="search">
+			<input class="btn btn-inverse" type="submit" value="search"> <a class="btn btn-info" href="reference.php#searchserver"> help</a>
 		</p>
 
 <?php include "footer.php"; ?>

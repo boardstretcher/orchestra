@@ -1,28 +1,30 @@
 <?php include "header.php"; ?> 
 
-<h2>online help</h2>
-	<legend>Official Gnu Bash</legend>
-		<p>
-			<a href="http://www.gnu.org/software/bash/">Go to site</a>
-		</p>
+<div class="hero-unit">
+<h1>Orchestra Reference</h1>
+<p>Here you will find the collected knowledge of the developers written out in the complete opposite style that James Joyce would employ. That is, it should be easy to read and access. If you have suggestions
+for additional help tips, feel free to update and make a pull request to the github project.</p>
+<p>
+<a class="btn btn-primary btn-large">
+Online Help
+</a>
+</p>
+</div>
+
+<h2>online scripting help</h2>
+	<legend>Official Gnu Bash <a class="btn btn-mini btn-inverse" href="http://www.gnu.org/software/bash/"> go</a></legend>
 		<p>Bash is the shell, or command language interpreter, that will appear in the GNU operating system. Bash is an sh-compatible shell that incorporates useful features from the Korn shell (ksh) and C shell (csh). It is intended to conform to the IEEE POSIX P1003.2/ISO 9945.2 Shell and Tools standard. It offers functional improvements over sh for both programming and interactive use. In addition, most sh scripts can be run by Bash without modification.
 		</p>
 	
-	<legend>Bash reference</legend>
-	<p>
-		<a href="http://www.gnu.org/software/bash/manual/bashref.html">Go to site</a>
-	</p>
+	<legend>Bash reference <a class="btn btn-mini btn-inverse" href="http://www.gnu.org/software/bash/manual/bashref.html"> go</a></legend>
 	<p>The official documentation for Bash. This is the overview of how Bash works and more or less the best place to start for bash scripting.
 	</p>
 
-	<legend>Advanced Bash Scripting</legend>
-	<p>
-		<a href="http://www.tldp.org/LDP/abs/html/">Go to site</a>
-	</p>
+	<legend>Advanced Bash Scripting <a class="btn btn-mini btn-inverse" href="http://www.tldp.org/LDP/abs/html/"> go</a></legend>
 	<p>This tutorial assumes no previous knowledge of scripting or programming, but progresses rapidly toward an intermediate/advanced level of instruction . . . all the while sneaking in little nuggets of UNIX® wisdom and lore. It serves as a textbook, a manual for self-study, and as a reference and source of knowledge on shell scripting techniques.
 	</p>
-<hr><hr>
-<h2>orchestra help</h2>
+<hr>
+<h2>local orchestra help</h2>
         <a href="addaserver"></a>
         <legend>add a server</legend>
                 <p>this section is concerned with adding a server to Orchestra which
