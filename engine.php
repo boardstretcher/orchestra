@@ -17,14 +17,11 @@ if ($informer == "createjob.php") {
 	exit();
 } // end createjob.php action
 
-if ($informer == "keys.php") {
+if ($informer == "createkeyModal.php") {
 	if ($formname == "create") {
 		$escaped_keytype = escapeshellcmd($_POST["keytype"]);
 		$escaped_keyname = escapeshellcmd($_POST["keyname"]);
 		$output = shell_exec("ssh-keygen -f ./keys/$escaped_keyname -t $escaped_keytype -N ''");
-		//echo "this should just be a popup<br><br>";
-		//echo "<pre>$output</pre>"; 
-		//echo "<a href='keys.php'>Go Back</a>";
 		header("Location: keys.php");
 		exit();
 	}//if formname == create

@@ -1,16 +1,13 @@
 <?php include "header.php"; ?> 
+<?php include "modals/createkeyModal.php"; ?>
+<?php include "modals/sendkeyModal.php"; ?>
 
 	<legend>create key</legend>
-	<p>
-		<form action="engine.php" method="post">
-			<input type="hidden" name="informer" value="keys.php">
-			<input type="hidden" name="formname" value="create">
-			<input class="span3" type="text" name="keyname" placeholder="keyname"><br>
-			<input class="btn btn-inverse" type="submit" value="create key"> <a class="btn btn-info" href="reference.php#createakey">help</a>
-		</form>
-	</p>
+	<a href="#createkeyModal" role="button" class="btn" data-toggle="modal">Create Key</a>
 
 	<legend>send key to server(s)</legend>
+	<a href="#sendkeyModal" role="button" class="btn" data-toggle="modal">Distribute Key</a>
+
 	<p>
                 <form action="engine.php" method="post">
 		<input type="hidden" name="informer" value="keys.php">
