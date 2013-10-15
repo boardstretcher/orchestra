@@ -17,7 +17,7 @@ if ($informer == "createjob.php") {
 	exit();
 } // end createjob.php action
 
-if ($informer == "createkeyModal.php") {
+if ($informer == "keys") {
 	if ($formname == "create") {
 		$escaped_keytype = escapeshellcmd($_POST["keytype"]);
 		$escaped_keyname = escapeshellcmd($_POST["keyname"]);
@@ -70,7 +70,7 @@ if ($informer == "runjob.php") {
 	exit();
 } //end runjob.php
 
-if ($informer == "servers.php") {
+if ($informer == "server") {
 	if ($formname == "add") {
 		//pull post data, scrub, and assign
 		$escaped_hostname = escapeshellcmd($_POST["hostname"]);

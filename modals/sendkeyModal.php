@@ -8,12 +8,11 @@
 <div id="sendkeyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sendkeyModalLabel" aria-hidden="true">
  <form action="engine.php" method="post">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="sendkeyModalLabel">Distribute Key</h3>
   </div>
   <div class="modal-body">
     <p>
-                <input type="hidden" name="informer" value="sendkeyModal.php">
+                <input type="hidden" name="informer" value="key">
                 <input type="hidden" name="formname" value="send">
                 <h4>Step 1: choose a key</h4>
                 <select id="key" name="key">
