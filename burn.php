@@ -1,7 +1,4 @@
-<?php include "LICENSE"; ?>		
 <?php include "header.php"; ?>  
-<body>
-<?php include "navbar.php"; ?>
 
 	<legend>orchestra stats</legend>
 		<p>
@@ -14,6 +11,3 @@
 		</p>
 
 <?php include "footer.php"; ?>	
-</body>
-</html>
-

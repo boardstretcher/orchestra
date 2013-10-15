@@ -4,8 +4,12 @@
      <footer>
       <div class="container">
       orchestra copyrighted 2013 by poorlymade.org
-      <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode"><img src="images/by-nc-sa-30.png" class="pull-right"></a>
+      <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode"><img src="img/by-nc-sa-30.png" class="pull-right"></a>
+      <img src="img/vim-badge.png" class="pull-right">
       </div>
      </footer>
   </body>
 </html>
+
+<!-- license information -->
+<?php include "LICENSE"; ?>

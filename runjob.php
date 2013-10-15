@@ -1,6 +1,4 @@
-<?php include "LICENSE"; ?>
 <?php include "header.php"; ?> 
-<body>
 
 	<a href="index.php">cancel</a>
 	<legend>this will be a popup window</legend>
@@ -32,7 +30,4 @@
 			<input type="submit" value="run">
 		</form>
 	</p>
-
-</body>
-</html>
-
+<?php include "footer.php"; ?>

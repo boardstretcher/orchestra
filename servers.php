@@ -1,7 +1,5 @@
-<?php include "LICENSE"; ?>
 <?php include "header.php"; ?>
-<body>
-<?php include "navbar.php"; ?>
+
 	<legend>add a server</legend>
 	<a href="reference.php#addaserver">help</a>
         <form action="engine.php" method="post">
@@ -76,5 +74,3 @@
 		</p>
 
 <?php include "footer.php"; ?>
-</body>
-</html>

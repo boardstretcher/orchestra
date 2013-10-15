@@ -1,7 +1,5 @@
-<?php include "LICENSE"; ?> 
 <?php include "header.php"; ?> 
-<body>
-<?php include "navbar.php"; ?>
+
 <h2>online help</h2>
 	<legend>Official Gnu Bash</legend>
 		<p>
@@ -107,6 +105,4 @@ so just keep that in mind while tooling around with Orchestra.
 
 
 <?php include "footer.php"; ?>
-</body>
-</html>
 

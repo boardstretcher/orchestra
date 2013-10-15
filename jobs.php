@@ -1,7 +1,4 @@
-<?php include "LICENSE"; ?>
-<?php include "header.php"; ?> 
-<body>
-<?php include "navbar.php"; ?>
+<?php include "header.php"; ?>
 
 	<legend>jobs control</legend>
 	<p>
@@ -11,6 +8,3 @@
 	</p>
 
 <?php include "footer.php"; ?>
-</body>
-</html>
-

@@ -1,7 +1,5 @@
-<?php include "LICENSE"; ?>		
 <?php include "header.php"; ?>  
-<body>
-<?php include "navbar.php"; ?>
+
 	<legend>orchestra stats</legend>
 	<p>
 		<br>number of snippets: <?php $output = shell_exec('find snippets/ -type f | wc -l'); echo "$output"; ?>
@@ -20,6 +18,3 @@
 	</p>
 
 <?php include "footer.php"; ?>	
-</body>
-</html>
-

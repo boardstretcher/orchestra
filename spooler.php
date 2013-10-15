@@ -1,7 +1,4 @@
-<?php include "LICENSE"; ?>		
 <?php include "header.php"; ?>  
-<body>
-<?php include "navbar.php"; ?>
 
 	<legend>spooler status</legend>
 	<p>
@@ -23,6 +20,3 @@
     </ul> 
 
 <?php include "footer.php"; ?>	
-</body>
-</html>
-

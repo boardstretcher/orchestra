@@ -1,6 +1,4 @@
-<?php include "LICENSE"; ?>
 <?php include "header.php"; ?> 
-<body>
 
 	<a href="index.php">cancel</a>
 	
@@ -29,6 +27,4 @@
 			</form>
 		</p>
 
-</body>
-</html>
-
+<?php include "footer.php"; ?>

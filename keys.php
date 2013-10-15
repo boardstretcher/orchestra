@@ -1,12 +1,5 @@
-<?php
-// things to fix in this code:
-// remove .pub results from list of keys
-?>
-
-<?php include "LICENSE"; ?>
 <?php include "header.php"; ?> 
-<body>
-<?php include "navbar.php"; ?>
+
 	<legend>create key</legend>
 	<a href="reference.php#createakey"> help</a>
 	<p>
@@ -42,7 +35,7 @@
                         $RList = "";
  			for($i=2; $i<count($dirArray); $i++) {
                                 $value = $dirArray[$i];
-                                $RList .= "<option name=\"sendkey\" value=".$value." />".$value."<br>\n";
+                                $RList .= "<option value=\"".$value."\"/>".$value."<br>\n";
                         }
                         echo $RList;
                         ?>
@@ -61,6 +54,3 @@
         </p>
 	
 <?php include "footer.php"; ?>
-</body>
-</html>
-

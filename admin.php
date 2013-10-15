@@ -1,7 +1,6 @@
-<?php include "LICENSE"; ?>		
 <?php include "header.php"; ?>  
-<body>
-<?php include "navbar.php"; ?>
+<?php include "admin-navbar.php"; ?>
+
 <legend>/var/log/httpd/error_log output</legend>
 <a href="reference.php#adminerrorlog">help</a>
 <pre>
@@ -40,6 +39,3 @@ echo $output;
         </p>
 
 <?php include "footer.php"; ?>	
-</body>
-</html>
-

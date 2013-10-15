@@ -13,47 +13,46 @@ if ($informer == "createjob.php") {
 	echo $_POST["description"]; echo "<br>";
 	echo $_POST["tags"]; echo "<br>";
 	echo $_POST["requiredvars"]; echo "<br>";
-
-	$escaped_server = escapeshellcmd($_POST["server"]);
-	$n = count($escaped_server);
-
-	for($i=0; $i < $n; $i++) {
-		echo($escaped_server[$i] . " ");
-		echo "<br>";
-	}
-
 	echo $_POST["script"]; echo "<br>";
+	exit();
 } // end createjob.php action
 
 if ($informer == "keys.php") {
 	if ($formname == "create") {
 		$escaped_keytype = escapeshellcmd($_POST["keytype"]);
+		$escaped_keyname = escapeshellcmd($_POST["keyname"]);
 		$output = shell_exec("ssh-keygen -f ./keys/$escaped_keyname -t $escaped_keytype -N ''");
-		echo "this should just be a popup<br><br>";
-		echo "<pre>$output</pre>"; 
-		echo "<a href='keys.php'>Go Back</a>";
+		//echo "this should just be a popup<br><br>";
+		//echo "<pre>$output</pre>"; 
+		//echo "<a href='keys.php'>Go Back</a>";
+		header("Location: keys.php");
+		exit();
 	}//if formname == create
 
 	if ($formname == "send") {
-		$escaped_keyname = escapeshellcmd($_POST["keyname"]);
 	        $escaped_formname = escapeshellcmd($_POST["formname"]);
-        	$escaped_sendkey = escapeshellcmd($_POST["sendkey"]);
+        	$escaped_key = escapeshellcmd($_POST["key"]);
 	        $escaped_servers = escapeshellcmd($_POST["servers"]);
 	        $escaped_password = escapeshellcmd($_POST["password"]);
 
 		$escaped_servers = explode(PHP_EOL, $escaped_servers);
 		$escaped_servers = array_filter($escaped_servers, 'trim');
+
 		foreach ($escaped_servers as $line) {
-			$output = shell_exec("sshpass -p $escaped_password ssh-copy-id -i keys/$escaped_sendkey $line");	
+		
 		} 
+
 		include "LICENSE";              
                 include "header.php"; 
                 echo "<body>";
                 include "navbar.php"; 
                 echo "<pre>";
                 $output = shell_exec("tail /var/log/httpd/error_log");
+		echo "password: $escaped_password<br>";
+		echo "key: $escaped_key<br>";
                 echo $output;
                 echo "</pre>";
+		exit();
 	}//if formname == send
 } // end keys.php action
 
@@ -71,6 +70,7 @@ if ($informer == "runjob.php") {
 		echo $line . "<br>"; 
 	}
 	fclose($f);
+	exit();
 } //end runjob.php
 
 if ($informer == "servers.php") {
@@ -93,10 +93,10 @@ if ($informer == "servers.php") {
 	        }//end foreach
 	
 		//print form info
-		echo "hostname: $escaped_hostname <br>";
-		echo "ip: $escaped_ipaddress <br>";
-		echo "os: $escaped_os <br>";
-		echo "key: $escaped_key <br>";
+		//echo "hostname: $escaped_hostname <br>";
+		//echo "ip: $escaped_ipaddress <br>";
+		//echo "os: $escaped_os <br>";
+		//echo "key: $escaped_key <br>";
 	
 		$f = fopen("servers/$escaped_hostname.ini", "w");
 		fwrite($f, "hostname=$escaped_hostname\n");
@@ -105,21 +105,23 @@ if ($informer == "servers.php") {
 		fwrite($f, "os=$escaped_os\n");
 		fwrite($f, "tags=$escaped_tagslist\n");
 		fclose($f);  
+		header("Location: servers.php");
+		exit();
 	}
 
 	if ($formname == "search") {
 		$escaped_search = escapeshellcmd($_POST["search"]);
-		$output = shell_exec("grep -i $escaped_search ./servers/");
-
+		exec("grep -i $escaped_search ./servers/*",$output);
 		include "LICENSE";
                 include "header.php";
                 echo "<body>";
                 include "navbar.php";
                 echo "<pre>";
-                echo $output;
+		foreach ($output as $line) {
+                        echo "$line <br>";
+                }//end foreach
                 echo "</pre>";
+		exit();
 	}
 } //end servers.php
 ?>
-
-
