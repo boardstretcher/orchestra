@@ -1,0 +1,7 @@
+Install apache with php support
+
+Modify /etc/sudoers to include:
+	apache ALL=(ALL) NOPASSWD: ALL
+
+And remove or comment out:
+	Defaults    requiretty	

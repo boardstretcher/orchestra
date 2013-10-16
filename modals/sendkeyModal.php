@@ -16,21 +16,17 @@
                 <input type="hidden" name="formname" value="send">
                 <h4>Step 1: choose a key</h4>
                 <select id="key" name="key">
-                        <?php
-                        $directory = opendir("./keys");
-                        while($entry = readdir($directory)) {
-                                $dirArray[] = $entry;
-                        }
-                        closedir($directory);
-                        $indexCount = count($dirArray);
-                        sort($dirArray);
-                        $RList = "";
-                        for($i=2; $i<count($dirArray); $i++) {
-                                $value = $dirArray[$i];
-                                $RList .= "<option value=\"".$value."\"/>".$value."<br>\n";
-                        }
-                        echo $RList;
-                        ?>
+		<?php
+                        $dir = './keys/';
+                        $files = scandir($dir);
+                        foreach($files as $ind_file){
+                                if ($ind_file == '.') { continue; }
+                                elseif ($ind_file == '..') { continue; }
+                                else { 
+				echo "<option value=\"$ind_file\">$ind_file</option><br>";
+				}
+                        };
+		?>
                 </select>
                         <br>
 
@@ -40,7 +36,6 @@
 
                 <h4>Step 3: specify password for server(s)</h4>
                         <input class="span3" type="text" name="password" placeholder="password"><br>
-                </form>
         </p>
   </div>
   <div class="modal-footer">

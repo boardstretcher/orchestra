@@ -3,6 +3,8 @@
 // Config
 $apachepass = "apache";
 
+
+
 //informer is a form field, letting us know which part of this
 //script needs to be called
 
@@ -81,7 +83,7 @@ if ($informer == "key") {
 		$escaped_servers = array_filter($escaped_servers, 'trim');
 
 		foreach ($escaped_servers as $line) {
-		
+			$output = shell_exec("cd /var/www/html/orchestra/; echo $apachepass | sudo socat - EXEC:'sshpass -p $escaped_password ssh-copy-id -i keys/$escaped_key $line',pty,setsid,ctty");					
 		} 
 
 		include "LICENSE";              

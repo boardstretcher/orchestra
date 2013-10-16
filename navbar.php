@@ -25,10 +25,10 @@
 	while (!feof($fh)) {
 		$line = fgets($fh);
 		if (preg_match("/status\=clear/i", $line)) {
-			echo "<li class=\"btn btn-success\">Status OK</li>";
+			echo "<li class=\"btn btn-success pull-right\">Status OK</li>";
 		} 
 	 	if (preg_match("/status\=error/i", $line)) {
-			echo "<li class=\"btn btn-danger\">Status Error</li>";
+			echo "<li class=\"btn btn-danger pull-right\">Status Error</li>";
 		}
 	}
 	fclose($fh);
