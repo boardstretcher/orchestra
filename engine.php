@@ -9,16 +9,17 @@ $formname = $_POST["formname"];
 if ($informer == "admin") {
 	if ($formname == "restart") {
 		$output = shell_exec("service httpd restart");
-		header("Location: index.php");
+		header("Location: admin.php");
                 exit();
 	}//end restart
 	if ($formname == "clear") {
 		$output = shell_exec("rm -rf spooler/*");
-		header("Location: index.php");
+		header("Location: admin.php");
 		exit();
 	}
         if ($formname == "update") {
-                header("Location: index.php");
+		$output = shell_exec("git pull");
+                header("Location: admin.php");
                 exit();
         }
         if ($formname == "manageburns") {
