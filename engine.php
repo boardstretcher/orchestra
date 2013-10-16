@@ -6,7 +6,42 @@
 $informer = $_POST["informer"];
 $formname = $_POST["formname"];
 
-if ($informer == "createjob.php") {
+if ($informer == "admin") {
+	if ($formname == "restart") {
+		$output = shell_exec("service httpd restart");
+		header("Location: index.php");
+                exit();
+	}//end restart
+	if ($formname == "clear") {
+		$output = shell_exec("rm -rf spooler/*");
+		header("Location: index.php");
+		exit();
+	}
+        if ($formname == "update") {
+                header("Location: index.php");
+                exit();
+        }
+        if ($formname == "manageburns") {
+                header("Location: index.php");
+                exit();
+        }
+        if ($formname == "managejobs") {
+                header("Location: index.php");
+                exit();
+        }
+        if ($formname == "managekeys") {
+                header("Location: index.php");
+                exit();
+        }
+        if ($formname == "manageservers") {
+                header("Location: index.php");
+                exit();
+        }
+
+
+} //end admin
+
+if ($informer == "job") {
 	
 	//simply echo the post data
 	echo $_POST["jobname"]; echo "<br>";
@@ -17,12 +52,12 @@ if ($informer == "createjob.php") {
 	exit();
 } // end createjob.php action
 
-if ($informer == "keys") {
+if ($informer == "key") {
 	if ($formname == "create") {
 		$escaped_keytype = escapeshellcmd($_POST["keytype"]);
 		$escaped_keyname = escapeshellcmd($_POST["keyname"]);
 		$output = shell_exec("ssh-keygen -f ./keys/$escaped_keyname -t $escaped_keytype -N ''");
-		header("Location: keys.php");
+		header("Location: index.php");
 		exit();
 	}//if formname == create
 
@@ -52,23 +87,6 @@ if ($informer == "keys") {
 		exit();
 	}//if formname == send
 } // end keys.php action
-
-if ($informer == "runjob.php") {
-	$runjob = $_POST["runjob"];
-	$escaped_runjob = escapeshellcmd($runjob);
-
-	$escaped_runjob = "./jobs/" . $escaped_runjob;
-	echo "you have seleted to run <b>" . $escaped_runjob . "</b>. see contents below.<br><br><br>";
-	echo "<hr>";
-
-	$f = fopen($escaped_runjob, "r");
-	while (!feof($f)) {
-		$line = fgets($f);
-		echo $line . "<br>"; 
-	}
-	fclose($f);
-	exit();
-} //end runjob.php
 
 if ($informer == "server") {
 	if ($formname == "add") {
@@ -102,7 +120,7 @@ if ($informer == "server") {
 		fwrite($f, "os=$escaped_os\n");
 		fwrite($f, "tags=$escaped_tagslist\n");
 		fclose($f);  
-		header("Location: servers.php");
+		header("Location: index.php");
 		exit();
 	}
 

@@ -8,7 +8,7 @@
 <div id="addserverModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="addserverModalLabel" aria-hidden="true">
 <form action="engine.php" method="post">
   <div class="modal-header">
-    <h3 id="addserverModalLabel">Create SSH Key</h3>
+    <h3 id="addserverModalLabel">Add server</h3>
   </div>
   <div class="modal-body">
    	<input type="hidden" name="informer" value="server">

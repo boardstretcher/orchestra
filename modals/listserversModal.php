@@ -8,7 +8,7 @@
 <div id="listserversModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="listserversModalLabel" aria-hidden="true">
  <form action="engine.php" method="post">
   <div class="modal-header">
-    <h3 id="listserversModalLabel">Distribute Key</h3>
+    <h3 id="listserversModalLabel">Server list</h3>
   </div>
   <div class="modal-body">
     <p>

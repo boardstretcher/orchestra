@@ -8,18 +8,17 @@
 <div id="searchserversModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="searchserversModalLabel" aria-hidden="true">
  <form action="engine.php" method="post">
   <div class="modal-header">
-    <h3 id="searchserversModalLabel">Distribute Key</h3>
+    <h3 id="searchserversModalLabel">Search servers</h3>
   </div>
   <div class="modal-body">
     <p>
                         <input type="hidden" name="informer" value="server">
                         <input type="hidden" name="formname" value="search">
-                        <input type="text" name="search"><br>
+			<input type="text" class="search-query" name="search"><button type="submit" class="btn"><i class="icon-search"></i></button>
         </p>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary" type="submit">Search</button>
   </div>
 </form>
 </div>
