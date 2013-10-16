@@ -1,10 +1,19 @@
 <?php 
 
+// Config
+$apachepass = "apache";
+
 //informer is a form field, letting us know which part of this
 //script needs to be called
 
 $informer = $_POST["informer"];
 $formname = $_POST["formname"];
+
+if ($informer == "command") {
+	if ($formname == "run") {
+		$output = shell_exec("echo $apachepass | socat - EXEC:'sudo ',pty,setsid,ctty");
+	}
+}
 
 if ($informer == "admin") {
 	if ($formname == "restart") {
@@ -89,6 +98,23 @@ if ($informer == "key") {
 	}//if formname == send
 } // end keys.php action
 
+if ($informer == "search") {
+        if ($formname == "search") {
+		$escaped_search = escapeshellcmd($_POST["search"]);
+		exec("grep -Ri $escaped_search --exclude=\*.{css,js,md,png,woff,svg,eot} --exclude=LICENSE  *",$output);                 
+                include "LICENSE";
+                include "header.php";
+                echo "<body>";
+                include "navbar.php";
+                echo "<pre>";
+                foreach ($output as $line) {
+                        echo "$line <br>";
+                } //end foreach
+                echo "</pre>";
+                exit();
+	}
+} //end search
+
 if ($informer == "server") {
 	if ($formname == "add") {
 		//pull post data, scrub, and assign
@@ -124,20 +150,5 @@ if ($informer == "server") {
 		header("Location: index.php");
 		exit();
 	}
-
-	if ($formname == "search") {
-		$escaped_search = escapeshellcmd($_POST["search"]);
-		exec("grep -i $escaped_search ./servers/*",$output);
-		include "LICENSE";
-                include "header.php";
-                echo "<body>";
-                include "navbar.php";
-                echo "<pre>";
-		foreach ($output as $line) {
-                        echo "$line <br>";
-                }//end foreach
-                echo "</pre>";
-		exit();
-	}
-} //end servers.php
+} //end server
 ?>

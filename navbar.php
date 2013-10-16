@@ -33,7 +33,6 @@
 	}
 	fclose($fh);
 ?>
-
 </ul>
 </div>
 </div>
