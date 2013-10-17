@@ -1,7 +1,6 @@
 <?php include "header.php"; ?>
 <?php include "modals/addserverModal.php"; ?>
 <?php include "modals/listserversModal.php"; ?>
-<?php include "modals/searchserversModal.php"; ?>
 <?php include "modals/createkeyModal.php"; ?>
 <?php include "modals/sendkeyModal.php"; ?>
 
@@ -9,7 +8,6 @@
 <a href="#sendkeyModal" role="button" class="btn" data-toggle="modal">Distribute Key</a>
 <a href="#addserverModal" role="button" class="btn" data-toggle="modal">Add Server</a>
 <a href="#listserversModal" role="button" class="btn" data-toggle="modal">Server List</a>
-<a href="#searchserversModal" role="button" class="btn" data-toggle="modal">Search servers</a>
 
 
 	<legend>orchestra stats</legend>
