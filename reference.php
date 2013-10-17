@@ -1,15 +1,13 @@
 <?php include "header.php"; ?> 
 
-<div class="hero-unit">
 <h1>Orchestra Reference</h1>
 <p>Here you will find the collected knowledge of the developers written out in the complete opposite style that James Joyce would employ. That is, it should be easy to read and access. If you have suggestions
 for additional help tips, feel free to update and make a pull request to the github project.</p>
 <p>
-<a class="btn btn-primary btn-large">
+<a class="btn btn-inverse">
 Online Help
 </a>
 </p>
-</div>
 
 <h2>online scripting help</h2>
 	<legend>Official Gnu Bash <a class="btn btn-mini btn-inverse" href="http://www.gnu.org/software/bash/"> go</a></legend>
