@@ -20,6 +20,7 @@
 	if ($current == "/orchestra/reference.php") { echo "<li class=\"active\"><a href=\"reference.php\">reference</a></li>";} else { echo "<li><a href=\"reference.php\">reference</a></li>"; }
 	if ($current == "/orchestra/admin.php") { echo "<li class=\"active\"><a href=\"admin.php\">admin</a></li>";} else { echo "<li><a href=\"admin.php\">admin</a></li>"; }
 	echo '<li><a target="_blank" href="editor/index.php">editor</a></li>';
+	echo '<li><a href="logout.php">logout</a></li>';
 
 	$fh = fopen("stats/status.nfo", "r");
 	while (!feof($fh)) {
