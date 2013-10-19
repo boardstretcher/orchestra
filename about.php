@@ -10,5 +10,9 @@
 		<a href="http://wiki.centos.org/FrontPage">Centos el6</a><br>
 		<a href="https://www.digitalocean.com/">Digital Ocean VM</a><br>
 	</p>
+	<legend>changelog</legend>
+	<pre>
+	<?php include "stats/changelog.nfo"; ?>
+	</pre>
 
 <?php include "footer.php"; ?>	
