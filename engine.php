@@ -58,7 +58,7 @@ if ($informer == "job") {
 			$description = "description=" . $_POST["description"] . "\n";		
 			$tags = "tags=" . $_POST["tags"] . "\n";	
 			$key = "key=" . $_POST["key"] . "\n";	
-			$variables = "variables=" . $_POST["variables"] . "\n";	
+			$variables = "variables=\n" . $_POST["variables"] . "\n";	
 			$script = "script=\n" . $_POST["script"];	
 
 			$file = "jobs/" . $_POST["jobname"] . ".ini";

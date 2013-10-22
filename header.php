@@ -1,8 +1,8 @@
 <?php
-session_start();
-if(!session_is_registered(myusername)){
-header("location:login.php");
-}
+	session_start();
+	if(!session_is_registered(myusername)){
+		header("location:login.php");
+	}
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,8 @@ header("location:login.php");
 	<meta name="description" content="orchestra script server">
 	<meta name="author" content="boardstretcher@gmail.com">
 	<meta name="project" content="https://github.com/boardstretcher/orchestra">
+
+	<!-- http://getbootstrap.com/2.3.2/ -->
 
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<script src="js/jquery.js"></script>

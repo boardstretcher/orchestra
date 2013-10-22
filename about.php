@@ -12,13 +12,18 @@
 	</p>
 	<legend>changelog</legend>
 	<pre>
-	<?php include "stats/changelog.nfo"; ?>
+<?php include "stats/changelog.nfo"; ?>
 	</pre>
 
 	<legend>license</legend>
 
-	<pre>
-	<?php include "LICENSE"; ?>
-	</pre>
+<pre>
+I've licensed this under the Creative Commons BY-NC-SA license. In short, you can fork, modify and do what you 
+like: as long as you give me credit where credit is due, and DO NOT attempt to sell or make money off of it. 
+
+This is a free project, don't do something lame and fuck it up with your capitalism.
+
+http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+</pre>
 
 <?php include "footer.php"; ?>	

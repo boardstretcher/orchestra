@@ -43,9 +43,13 @@
                 $indexCount = count($dirArray);
                 sort($dirArray);
                 $RList = "";
+
+		// i = 2, so . and .. are ignored
                 for($i=2; $i<count($dirArray); $i++) {
                         $value = $dirArray[$i];
+			if (!preg_match('/\.pub$/',$value)) {
                         $RList .= "<option value=".$value." />".$value."<br>";
+			}
                 }
                 echo $RList;
         ?>
