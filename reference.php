@@ -10,6 +10,9 @@ Online Help
 </p>
 
 <h2>online scripting help</h2>
+	<legend>A bash script skeleton <a class="btn btn-mini btn-inverse" href="https://github.com/boardstretcher/bash-script-skeleton/blob/master/wireframe.sh"> go</a></legend>
+		<p>This is another resource I have provided from my github page. A bash skeleton script with all kinds of goodies to get you started, including: debug mode, info mode, temp file creation and destruction, error handling,.. all in a neat and easy to use file with plenty of comments to help you understand the 15 or so lines that make up the file.
+		</p>
 	<legend>Official Gnu Bash <a class="btn btn-mini btn-inverse" href="http://www.gnu.org/software/bash/"> go</a></legend>
 		<p>Bash is the shell, or command language interpreter, that will appear in the GNU operating system. Bash is an sh-compatible shell that incorporates useful features from the Korn shell (ksh) and C shell (csh). It is intended to conform to the IEEE POSIX P1003.2/ISO 9945.2 Shell and Tools standard. It offers functional improvements over sh for both programming and interactive use. In addition, most sh scripts can be run by Bash without modification.
 		</p>

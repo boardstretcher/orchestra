@@ -4,13 +4,15 @@
 <?php include "modals/createkeyModal.php"; ?>
 <?php include "modals/sendkeyModal.php"; ?>
 
-<a href="#createkeyModal" role="button" class="btn" data-toggle="modal">Create Key</a>
-<a href="#sendkeyModal" role="button" class="btn" data-toggle="modal">Distribute Key</a>
-<a href="#addserverModal" role="button" class="btn" data-toggle="modal">Add Server</a>
-<a href="#listserversModal" role="button" class="btn" data-toggle="modal">Server List</a>
+<legend>Getting Started</legend>
 
+<a href="#createkeyModal" role="button" class="btn" data-toggle="modal">Create Key</a>
+<a href="#addserverModal" role="button" class="btn" data-toggle="modal">Add Server</a>
+<a href="#sendkeyModal" role="button" class="btn" data-toggle="modal">Distribute Key</a>
+<a href="createjob.php" role="button" class="btn">Create Job</a>
 
 	<legend>orchestra stats</legend>
+	<a href="#listserversModal" role="button" class="btn" data-toggle="modal">Server List</a>
 	<p>
 		<br>number of snippets: <?php $output = shell_exec('find snippets/ -type f | wc -l'); echo "$output"; ?>
 		<br>newest snippet: <?php $output = shell_exec('ls -tr snippets/ | tail -n 1'); echo "$output"; ?>

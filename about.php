@@ -1,6 +1,6 @@
 <?php include "header.php"; ?>
 
-	<legend>projects et al that Orchestra or its Developer utilizes</legend>
+	<legend>Projects and Sites that Orchestra or its Developer utilizes</legend>
 	<p>
 		
 		<a href="https://github.com/">Github</a><br>
@@ -13,6 +13,12 @@
 	<legend>changelog</legend>
 	<pre>
 	<?php include "stats/changelog.nfo"; ?>
+	</pre>
+
+	<legend>license</legend>
+
+	<pre>
+	<?php include "LICENSE"; ?>
 	</pre>
 
 <?php include "footer.php"; ?>	

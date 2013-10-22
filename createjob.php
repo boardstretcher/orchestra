@@ -2,10 +2,14 @@
 <?php include 'navbar.php' ?>
 
 <form action="engine.php" method="post">
-<input type="hidden" name="informer" value="key">
-<input type="hidden" name="formname" value="send">
+<input type="hidden" name="informer" value="job">
+<input type="hidden" name="formname" value="create">
 <h4>job name</h4>
-<input class='span3' type="text" name="jobname"><br>
+<input class='span3' type="text" name="jobname" placeholder='no spaces please'><br>
+<h4>description</h4>
+<input class='span3' type="text" name="description" placeholder='brief description'><br>
+<h4>tags</h4>
+<input class='span3' type="text" name="tags" placeholder='comma seperated tags'><br>
 <h4>ssh key</h4>
 <select id="key" name="key">
 <?php
